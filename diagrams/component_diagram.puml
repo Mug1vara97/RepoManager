@@ -1,0 +1,19 @@
+@startuml
+package "Frontend" {
+    [UI Layer]
+    [State Management]
+    [API Client]
+}
+
+cloud "External Services" {
+    [GitHub API]
+    [GitVerse API]
+    [GitFlic API]
+}
+
+[UI Layer] --> [State Management]
+[State Management] --> [API Client]
+[API Client] --> [GitHub API]
+[API Client] --> [GitVerse API]
+[API Client] --> [GitFlic API]
+@enduml 

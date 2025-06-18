@@ -1,0 +1,47 @@
+@startuml
+class Repository {
+    +String name
+    +String description
+    +Boolean isPrivate
+    +String hostingType
+    +DateTime createdAt
+    +DateTime updatedAt
+    +create()
+    +delete()
+    +updateVisibility()
+    +updateDescription()
+}
+
+class HostingService {
+    +String type
+    +String apiToken
+    +Boolean isConnected
+    +DateTime lastSync
+    +connect()
+    +disconnect()
+    +validateToken()
+    +syncRepositories()
+}
+
+class User {
+    +String[] connectedServices
+    +Object settings
+    +DateTime lastLogin
+    +connectService()
+    +updateSettings()
+    +getRepositories()
+}
+
+class Settings {
+    +Boolean darkMode
+    +String language
+    +Boolean notifications
+    +save()
+    +load()
+    +reset()
+}
+
+Repository --> HostingService
+User --> HostingService
+User --> Settings
+@enduml 

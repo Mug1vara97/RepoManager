@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant System
+participant API
+
+User -> UI: Выбор хостинга
+User -> UI: Ввод данных репозитория
+UI -> System: Валидация данных
+System --> UI: Результат валидации
+System -> API: Запрос создания
+API --> System: Ответ API
+System --> UI: Обновление интерфейса
+UI --> User: Отображение результата
+@enduml 

@@ -1,0 +1,69 @@
+@startuml
+skinparam rectangle {
+    roundCorner 25
+}
+
+rectangle "Технические\nриски" as Tech #LightBlue {
+    card "OAuth авторизация" as OAuth
+    card "Несовместимость API" as API
+    card "Кроссплатформенность" as Cross
+}
+
+rectangle "Временные\nриски" as Time #LightGreen {
+    card "Задержки разработки" as Delay
+    card "Непредвиденные\nсложности" as Unexpected
+}
+
+rectangle "Интеграционные\nриски" as Integration #LightYellow {
+    card "Ограничения API" as Limits
+    card "Изменения в API" as Changes
+}
+
+rectangle "Пользовательские\nриски" as User #LightPink {
+    card "Проблемы с UX" as UX
+    card "Производительность" as Performance
+}
+
+rectangle "Меры снижения\nрисков" as Solutions #LightGrey {
+    card "Превентивные" as Preventive
+    card "Реактивные" as Reactive
+    card "Мониторинг" as Monitoring
+}
+
+OAuth --> Preventive
+OAuth --> Monitoring
+API --> Preventive
+Cross --> Preventive
+
+Delay --> Reactive
+Unexpected --> Reactive
+Unexpected --> Monitoring
+
+Limits --> Monitoring
+Limits --> Preventive
+Changes --> Monitoring
+Changes --> Reactive
+
+UX --> Monitoring
+Performance --> Monitoring
+Performance --> Preventive
+
+note right of Preventive
+  - Тестирование
+  - Документирование
+  - Резервное копирование
+end note
+
+note right of Reactive
+  - Откат изменений
+  - Шаблоны ошибок
+  - Быстрые обновления
+end note
+
+note right of Monitoring
+  - API хостингов
+  - Ошибки приложения
+  - Действия пользователей
+end note
+
+@enduml 

@@ -1,0 +1,30 @@
+@startuml
+skinparam rectangle {
+    roundCorner 25
+}
+
+rectangle "Матрица рисков" as Matrix {
+    rectangle "Высокая\nвероятность" as High {
+        card "API лимиты\n(средний)" as HighMed #Yellow
+        card "UX проблемы\n(низкий)" as HighLow #Green
+    }
+    
+    rectangle "Средняя\nвероятность" as Med {
+        card "OAuth проблемы\n(высокий)" as MedHigh #Red
+        card "Задержки\n(средний)" as MedMed #Yellow
+    }
+    
+    rectangle "Низкая\nвероятность" as Low {
+        card "Изменения API\n(высокий)" as LowHigh #Red
+        card "Кроссплатформ.\n(средний)" as LowMed #Yellow
+    }
+}
+
+note bottom of Matrix
+Цветовая кодировка влияния:
+<color:red>Красный</color> - высокое
+<color:yellow>Желтый</color> - среднее
+<color:green>Зеленый</color> - низкое
+end note
+
+@enduml 
