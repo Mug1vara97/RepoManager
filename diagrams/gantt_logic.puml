@@ -1,0 +1,29 @@
+@startgantt
+project starts 2025-06-04
+
+[Sprint 1] starts 2025-06-04 and lasts 5 days
+[Sprint 2] starts 2025-06-11 and lasts 5 days
+[Sprint 3] starts 2025-06-18 and lasts 5 days
+
+-- Подготовка --
+[Изучение Git API GitHub/GitFlic] starts 2025-06-04 and ends 2025-06-04
+[Выбор Git библиотек] starts 2025-06-04 and ends 2025-06-04
+
+-- Sprint 1 (MVP) --
+[Настройка backend] starts 2025-06-05 and lasts 2 days
+[GitHub OAuth логика] starts 2025-06-05 and lasts 2 days
+[GitHub API операции] starts 2025-06-07 and lasts 1 days
+[Тестирование и документация API] starts 2025-06-08 and lasts 1 days
+
+-- Sprint 2 --
+[Расширенные функции] starts 2025-06-11 and lasts 2 days
+[GitFlic API интеграция] starts 2025-06-13 and lasts 2 days
+[Тестирование и документация интеграции] starts 2025-06-15 and lasts 1 days
+
+-- Sprint 3 --
+[Оптимизация логики] starts 2025-06-18 and lasts 2 days
+[Исправление кода] starts 2025-06-20 and lasts 1 days
+[Финальное тестирование] starts 2025-06-21 and lasts 1 days
+[Финальная документация и релиз] starts 2025-06-22 and lasts 1 days
+
+@endgantt 

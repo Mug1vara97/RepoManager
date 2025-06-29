@@ -1,0 +1,70 @@
+@startgantt
+project starts 2025-06-04
+
+[Sprint 1] starts 2025-06-04 and lasts 5 days
+[Sprint 2] starts 2025-06-11 and lasts 5 days
+[Sprint 3] starts 2025-06-18 and lasts 5 days
+
+-- Подготовка --
+[UI: Изучение UI API GitHub/GitFlic] as [UI1] starts 2025-06-04 and ends 2025-06-04
+[UI: Выбор UI библиотек] as [UI2] starts 2025-06-04 and ends 2025-06-04
+[Logic: Изучение Git API GitHub/GitFlic] as [L1] starts 2025-06-04 and ends 2025-06-04
+[Logic: Выбор Git библиотек] as [L2] starts 2025-06-04 and ends 2025-06-04
+
+-- Sprint 1 (MVP) --
+[UI: Настройка UI окружения] as [UI3] starts 2025-06-05 and lasts 2 days
+[UI: Базовый интерфейс] as [UI4] starts 2025-06-05 and lasts 2 days
+[Logic: Настройка backend] as [L3] starts 2025-06-05 and lasts 2 days
+[Logic: GitHub OAuth логика] as [L4] starts 2025-06-05 and lasts 2 days
+[UI: Интеграция OAuth UI] as [UI5] starts 2025-06-07 and lasts 1 days
+[Logic: GitHub API операции] as [L5] starts 2025-06-07 and lasts 1 days
+[UI: Тестирование и документация MVP] as [UI6] starts 2025-06-08 and lasts 1 days
+[Logic: Тестирование и документация API] as [L6] starts 2025-06-08 and lasts 1 days
+
+-- Sprint 2 --
+[UI: UI/UX улучшения] as [UI7] starts 2025-06-11 and lasts 2 days
+[Logic: Расширенные функции] as [L7] starts 2025-06-11 and lasts 2 days
+[UI: Интерфейс GitFlic] as [UI8] starts 2025-06-13 and lasts 2 days
+[Logic: GitFlic API интеграция] as [L8] starts 2025-06-13 and lasts 2 days
+[UI: Тестирование и документация интеграции] as [UI9] starts 2025-06-15 and lasts 1 days
+[Logic: Тестирование и документация интеграции] as [L9] starts 2025-06-15 and lasts 1 days
+
+-- Sprint 3 --
+[UI: Оптимизация UX] as [UI10] starts 2025-06-18 and lasts 2 days
+[Logic: Оптимизация логики] as [L10] starts 2025-06-18 and lasts 2 days
+[UI: Финальное UI тестирование] as [UI11] starts 2025-06-20 and lasts 1 days
+[Logic: Исправление кода] as [L11] starts 2025-06-20 and lasts 1 days
+[UI: Финальная документация UI] as [UI12] starts 2025-06-21 and lasts 1 days
+[Logic: Финальное тестирование] as [L12] starts 2025-06-21 and lasts 1 days
+[UI: Подготовка UI к релизу] as [UI13] starts 2025-06-22 and lasts 1 days
+[Logic: Финальная документация и релиз] as [L13] starts 2025-06-22 and lasts 1 days
+
+[UI1] is colored in LightBlue
+[UI2] is colored in LightBlue
+[UI3] is colored in LightBlue
+[UI4] is colored in LightBlue
+[UI5] is colored in LightBlue
+[UI6] is colored in LightBlue
+[UI7] is colored in LightBlue
+[UI8] is colored in LightBlue
+[UI9] is colored in LightBlue
+[UI10] is colored in LightBlue
+[UI11] is colored in LightBlue
+[UI12] is colored in LightBlue
+[UI13] is colored in LightBlue
+
+[L1] is colored in LightGreen
+[L2] is colored in LightGreen
+[L3] is colored in LightGreen
+[L4] is colored in LightGreen
+[L5] is colored in LightGreen
+[L6] is colored in LightGreen
+[L7] is colored in LightGreen
+[L8] is colored in LightGreen
+[L9] is colored in LightGreen
+[L10] is colored in LightGreen
+[L11] is colored in LightGreen
+[L12] is colored in LightGreen
+[L13] is colored in LightGreen
+
+@endgantt 

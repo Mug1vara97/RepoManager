@@ -1,0 +1,66 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/jammy64"
+  
+  config.vm.network "private_network", ip: "192.168.56.10"
+  
+  config.vm.network "forwarded_port", guest: 3000, host: 3000 
+  config.vm.network "forwarded_port", guest: 8080, host: 8080 
+  
+  config.vm.synced_folder "../", "/home/vagrant/project"
+  
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "electron_dev_environment_#{Time.now.to_i}" 
+    vb.memory = "2048" 
+    vb.cpus = 1
+    vb.gui = true 
+  end
+  
+  config.vm.boot_timeout = 600
+  
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get upgrade -y
+    
+    apt-get install -y curl wget git build-essential apt-transport-https ca-certificates gnupg-agent software-properties-common
+    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+    apt-get install -y nodejs
+    
+    node -v
+    npm -v
+    
+    npm install -g yarn electron electron-builder jest create-electron-app
+    
+    yarn --version
+    electron --version
+    jest --version
+    
+    su - vagrant -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
+    
+    echo 'export NVM_DIR="$HOME/.nvm"' >> /home/vagrant/.bashrc
+    echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /home/vagrant/.bashrc
+    echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> /home/vagrant/.bashrc
+    
+    wget -O postman.tar.gz https://dl.pstmn.io/download/latest/linux64
+    tar -xzf postman.tar.gz -C /opt
+    ln -s /opt/Postman/Postman /usr/bin/postman
+    rm postman.tar.gz
+    
+    su - vagrant -c 'git config --global init.defaultBranch master'
+    
+    mkdir -p /home/vagrant/project/src
+    chown -R vagrant:vagrant /home/vagrant/project
+    
+    su - vagrant -c 'curl -fsSL https://code-server.dev/install.sh | sh'
+    systemctl enable --now code-server@vagrant
+    
+    echo "Node.js: $(node -v)" > /home/vagrant/versions.txt
+    echo "npm: $(npm -v)" >> /home/vagrant/versions.txt
+    echo "Electron: $(electron --version)" >> /home/vagrant/versions.txt
+    
+  SHELL
+  
+  config.vm.provision "file", source: "./init_project.sh", destination: "/home/vagrant/init_project.sh"
+  config.vm.provision "file", source: "./setup_permissions.sh", destination: "/home/vagrant/setup_permissions.sh"
+  
+  config.vm.provision "shell", inline: "chmod +x /home/vagrant/*.sh"
+  
